@@ -25,7 +25,6 @@ paginate_path: /page:num/
 
 version: "1.0.0"
 
-# Options
 custom_header: false
 custom_nav_footer: false
 reverse: false
