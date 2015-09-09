@@ -9,6 +9,7 @@ author:
   github: "kunsun"
 
 baseurl:  /
+comments: true
 markdown: rdiscount
 highlighter: pygments
 permalink: pretty
@@ -23,7 +24,7 @@ paginate_path: /page:num/
 #     values:
 #       layout: "post"
 
-version: "1.0.0"
+version: "1.0.1"
 
 custom_header: false
 custom_nav_footer: false
