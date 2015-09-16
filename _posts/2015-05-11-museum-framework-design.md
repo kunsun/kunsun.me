@@ -1,6 +1,7 @@
 ---
 title: 网上博物馆底层整体框架设计
 layout: post
+variable: 1
 tags: 
 - 架构
 - 模式
