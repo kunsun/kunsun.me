@@ -1,6 +1,7 @@
 # Site settings
 title: Kunsun
 description: "A minimal blog, build with Jekyll."
+source: /
 url: "http://www.kunsun.info"
 author:
   name: "kunsun"
