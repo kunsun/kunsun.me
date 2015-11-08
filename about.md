@@ -1,7 +1,6 @@
 ---
 layout: page
 title: 关于Kunsun
-variable: 1
 ---
 
 爱好
