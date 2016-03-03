@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Meta -->
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta name="generator" content="Jekyll">
+
+	<title>Javascript编码风格</title>
+
+	<!-- CSS & fonts -->
+
+	<link rel="stylesheet" href="/assets/css/github-markdown.css">
+	<link rel="stylesheet" href="/assets/css/main.css">
+
+	<style>
+	    .markdown-body {
+	        min-width: 200px;
+	        max-width: 960px;
+	        margin: 0 auto;
+	        padding: 30px;
+	    }
+	</style>
+
+</head>
+
+
+<body>
+	<div id="wrap">
+	  	
+	  	<!-- Navigation -->
+	  	<nav id="nav">
+	<div id="nav-list">
+		<a href="/">首页</a>
+
+		<!-- Nav pages -->
+	  
+	    
+	      <a href="/about/" title="关于Kunsun">关于Kunsun</a>
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+    
+    <!-- Nav links -->
+	  <a href="https://github.com/kunsun">Github</a>
+
+	</div>
+  
+  <!-- Nav footer -->
+	
+	  <footer>
+	
+	<span>欢迎来到kunsun的</span>
+	<br>
+	<span>个人网站</span>
+
+</footer>
+	
+
+</nav>
+
+    
+    <!-- Icon menu -->
+	  <a href="#" id="nav-menu">
+	  	<div id="menu"></div>
+	  </a>
+
+      <!-- Header -->
+      
+        <header id="header">
+	<a href="/">
+		<!-- <img src="/img/emerald.svg" alt="Emerald Logo"> -->
+	  <h1>kunsun</h1>
+	</a>
+</header>
+
+      
+
+    <!-- Main content -->
+	  <div id="container">
+		  
+		<main>
+
+			<article id="post-page" class="markdown-body">
+	<h2>Javascript编码风格</h2>		
+	<time datetime="2015-06-09T00:00:00+08:00" class="by-line">09 Jun 2015</time>
+	<div class="content">
+
+		<h4>function</h4>
+
+<hr />
+
+<blockquote><p>参照github上的<a href="https://github.com/airbnb/javascript/tree/master/es5">文章</a>。权当是学习笔记。</p></blockquote>
+
+<p>Anonymous function expressions hoist their variable name,but not the function assignment.</p>
+
+<pre><code>function example() {
+    console.log(anonymous); // =&gt; undefined
+    anonymous(); // =&gt; TypeError anonymous is not a function
+    var anonymous = function() {
+        console.log('anonymous function expression');
+    };
+}
+</code></pre>
+
+<p>Function declarations hoist their name and the function body.</p>
+
+<pre><code>function example() {
+    superPower(); // =&gt; Flying
+    function superPower() {
+        console.log('Flying');
+    }
+}
+</code></pre>
+
+<p>条件判断中使用shortcuts。</p>
+
+<pre><code>// bad
+if (name !== '') {
+    // ...stuff...
+}
+// good
+if (name) {
+  // ...stuff...
+}
+// bad
+if (collection.length &gt; 0) {
+  // ...stuff...
+}
+// good
+if (collection.length) {
+  // ...stuff...
+}
+</code></pre>
+
+<h4>comments</h4>
+
+<hr />
+
+<p>Use /<em>* ... </em>/ for multi-line comments. Include a description,specify types and values for all parameters and return values.</p>
+
+<p>Place single line comments on a newline above the subject of the comment.Put an empty line before the comment.</p>
+
+<p>Prefixing you comments with FIXME or TODO helps other developers quickly understand if you're pointing out a problem that need to be revisited, or if you're suggesting a solution to the problem that needs to be implemented.</p>
+
+<h4>whitespace</h4>
+
+<hr />
+
+<p>Place 1 space before the leading brace.</p>
+
+<p>Place 1 space before the opening parenthesis in control statements.</p>
+
+<p>Place no space before the argument list in function calls and declarations.</p>
+
+<p>Set off operators with spaces.</p>
+
+<p>Leave a blank line after blocks and before the next statement.</p>
+
+<h4>naming</h4>
+
+<hr />
+
+<p>Use a leading underscore _ when naming private properties.</p>
+
+<p>When saving a reference to this use _this.</p>
+
+<p>Name your function.This is helpful for stack traces.</p>
+
+<h4>accessors</h4>
+
+<hr />
+
+<p>If you do make accesspr functions use getVal() and setVal('hello').</p>
+
+<h4>constructors</h4>
+
+<hr />
+
+<p>Assign methods to the prototype object, instead of overwriting the prototype with a new object.</p>
+
+<p>Methods can return this to help with method chaining.</p>
+
+<h4>jQuery</h4>
+
+<hr />
+
+<p>Prefix jQuery object variables with a $.</p>
+
+<p>Cache jQuery lookups.</p>
+
+		
+	</div>
+</article>
+
+
+
+	  </main>
+		
+		  <!-- Pagination links -->
+      
+    
+	  </div>
+	    <!-- Footer -->
+	    <footer><span>@2015 - Kunsun</span></footer>
+
+	    
+
+	</div>
+  <!-- Script -->
+  <script src="/assets/js/main.js"></script>	
+
+</body>
+</html>

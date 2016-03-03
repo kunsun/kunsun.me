@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Kunsun</title>
+ <link href="http://www.kunsun.info/atom.xml" rel="self"/>
+ <id>http://www.kunsun.info</id>
+ <updated>2015-11-23T23:07:29+08:00</updated>
+ <author>
+   <name>kunsun</name>
+   <uri>http://www.kunsun.info</uri>
+   <email>yangkunid91@gmail.com</email>
+ </author>
+
+ 
+
+ <entry>
+   <title>jekyll博客的目录结构</title>
+   <link href="http://www.kunsun.info/2015/11/23/jekyll-website-directory/"/>
+   <id>http://www.kunsun.info/2015/11/23/jekyll-website-directory</id>
+   <updated>2015-11-23T00:00:00+08:00</updated>
+   <content type="html">&lt;p&gt;Jekyll可以寄托在github上，所以选择作为我个人网站的建站工具。Jekyll目录结构一般都是规定好的。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CNAME  放置自己的域名，方便服务器定位。&lt;/li&gt;
+&lt;li&gt;README.md github仓库需要的说明文件&lt;/li&gt;
+&lt;li&gt;_config.yml jekyll的配置文件&lt;/li&gt;
+&lt;li&gt;_includes
+
+&lt;ul&gt;
+&lt;li&gt;disqus.html&lt;/li&gt;
+&lt;li&gt;footer.html&lt;/li&gt;
+&lt;li&gt;header.html&lt;/li&gt;
+&lt;li&gt;navside.html&lt;/li&gt;
+&lt;li&gt;googleanalytics.html&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;_layouts
+
+&lt;ul&gt;
+&lt;li&gt;page.html&lt;/li&gt;
+&lt;li&gt;default.html&lt;/li&gt;
+&lt;li&gt;page.html&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;_posts 做一个分类比较好
+
+&lt;ul&gt;
+&lt;li&gt;Book&lt;/li&gt;
+&lt;li&gt;Life&lt;/li&gt;
+&lt;li&gt;Resource&lt;/li&gt;
+&lt;li&gt;Technology&lt;/li&gt;
+&lt;li&gt;Tool&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;pages
+
+&lt;ul&gt;
+&lt;li&gt;about.html&lt;/li&gt;
+&lt;li&gt;archive.html&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;public
+
+&lt;ul&gt;
+&lt;li&gt;css&lt;/li&gt;
+&lt;li&gt;fonts&lt;/li&gt;
+&lt;li&gt;img&lt;/li&gt;
+&lt;li&gt;js&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
+
+ 
+
+ <entry>
+   <title>连笔字书写 API文档</title>
+   <link href="http://www.kunsun.info/2015/10/30/wringting-api/"/>
+   <id>http://www.kunsun.info/2015/10/30/wringting-api</id>
+   <updated>2015-10-30T00:00:00+08:00</updated>
+   <content type="html">&lt;p&gt;连笔字书写目前做的是汉字的展示和练习。 展示主要指标准字。练习指自己也可以在画布上练习写字。写好一个字之后，需要把多个字放入一个页面中。页面是多个字的组合，可以是对联，也可以是成语。&lt;/p&gt; &lt;h3&gt;面向对象思路&lt;/h3&gt; &lt;p&gt;将字看做一个对象，命名为Character,单个字的操作都交给它处理。 例如，字的书写、字大小变化、字位置平移。 将页面看做一个对象，这里以成语为例（因为够简单），字与字之间的关系都交给它处理。例如，添加字、删除字、获取当前操作的是哪个字。&lt;/p&gt; &lt;h3&gt;Character.js 介绍&lt;/h3&gt; &lt;p&gt;Character.js中只有Character一个对象， 使用立即执行函数封装所有变量，只通过window[&#39;Character&#39;] = Character，使Character可以被访问。因为需要用到Lodash这个库的extend和cloneDeep方法，通过(function(/&lt;em&gt;){})(/&lt;/em&gt;)引入（和引入JQuery类似）。然后Character对象的创建使用最常用的对象创建方法：构造函数模式和原型模式混成的模式（参见：《Javascript高级程序设计第三版》159页）。 写一个字需要两部分，数据和控制参数。 数据就是strokeArray（笔画数组）,参数就是opts（控制参数）。 * Options： 默认的opts：&lt;/p&gt; &lt;pre&gt;&lt;code&gt; Character.defaultOpts = { gaussian: 1.3, wmax: 13.0, wmin: 2.0, timeScale: 15, radius: 5, lineWidth: 1.2, displayMode: { brush: 1, skeleton: 0, strokeColor: 0, animation: 0, uniformWidth: 0 }, strokeColors: [&#39;black&#39;, &#39;gray3&#39;, &#39;gray2&#39;,...</content>
+ </entry>
+
+ 
+
+ <entry>
+   <title>NodeList和HTMLCollection的区别</title>
+   <link href="http://www.kunsun.info/2015/06/13/HTMLCollection&NodeList/"/>
+   <id>http://www.kunsun.info/2015/06/13/HTMLCollection&NodeList</id>
+   <updated>2015-06-13T00:00:00+08:00</updated>
+   <content type="html">&lt;p&gt;NodeList和HTMLCollection是Dom中两个非常相似的概念，今天研究了一小会会，总结一下下。&lt;/p&gt; &lt;p&gt;都是array-like object&lt;/p&gt; &lt;p&gt;getElementsByName(),Node.childNodes,document.querySelectorAll返回NodeList对象，而类似getElementsByTagName(),document.images() 和 document.forms() 的属性为HTMLCollection对象。&lt;/p&gt; &lt;p&gt;都是只读的类数组对象。 有length属性。&lt;/p&gt; &lt;p&gt;不能直接在NodeList和HTML集合上调用Array方法，但可以简介的使用。&lt;/p&gt; &lt;pre&gt;&lt;code&gt;var content = Array.prototype.map.call(document.getElementsByTagName(&quot;p&quot;),function(e){ return e.innerHTML; }); &lt;/code&gt;&lt;/pre&gt; &lt;p&gt;NodeList和HTMLCollection对象不是历史文档状态的一个静态快照，而通常是实时的，并且当文档变化时他们所包含的元素列表能随之改变。&lt;/p&gt; &lt;p&gt;They differ in the methods they provide and in the type of nodes they can contain. While a NodeList can contain any noe type, an HTMLCollection is supposed to only contain...</content>
+ </entry>
+
+ 
+
+ <entry>
+   <title>Javascript编码风格</title>
+   <link href="http://www.kunsun.info/2015/06/09/javascript-style-guide/"/>
+   <id>http://www.kunsun.info/2015/06/09/javascript-style-guide</id>
+   <updated>2015-06-09T00:00:00+08:00</updated>
+   <content type="html">&lt;h4&gt;function&lt;/h4&gt; &lt;hr /&gt; &lt;blockquote&gt;&lt;p&gt;参照github上的&lt;a href=&quot;https://github.com/airbnb/javascript/tree/master/es5&quot;&gt;文章&lt;/a&gt;。权当是学习笔记。&lt;/p&gt;&lt;/blockquote&gt; &lt;p&gt;Anonymous function expressions hoist their variable name,but not the function assignment.&lt;/p&gt; &lt;pre&gt;&lt;code&gt;function example() { console.log(anonymous); // =&amp;gt; undefined anonymous(); // =&amp;gt; TypeError anonymous is not a function var anonymous = function() { console.log(&#39;anonymous function expression&#39;); }; } &lt;/code&gt;&lt;/pre&gt; &lt;p&gt;Function declarations hoist their name and the...</content>
+ </entry>
+
+ 
+
+ <entry>
+   <title>A*算法</title>
+   <link href="http://www.kunsun.info/2015/06/09/A-star/"/>
+   <id>http://www.kunsun.info/2015/06/09/A-star</id>
+   <updated>2015-06-09T00:00:00+08:00</updated>
+   <content type="html">&lt;p&gt;&lt;img src=&quot;/img/A-star.jpg&quot; title=&quot;A star&quot; alt=&quot;Kunsun&quot; /&gt;&lt;/p&gt; &lt;p&gt;因为算法设计课需要讲算法，阿飞推介的A*算法，正好也与游戏相关，所以就花了一整天时间研究了一下。顺利完成。附图一张。&lt;/p&gt; &lt;h4&gt;一只探路猫&lt;/h4&gt; &lt;p&gt;有一款游戏， 游戏中一只猫想要找到获取骨头的路线。猫想找到到达骨头的最短路径。&lt;/p&gt; &lt;h4&gt;简化搜索区域&lt;/h4&gt; &lt;p&gt;寻路的第一步是简化成容易控制的搜索区域。 使用正方形是作为寻路的单元最简单的。&lt;/p&gt; &lt;h4&gt;Open和Closed列表&lt;/h4&gt; &lt;p&gt;需要两个列表：&lt;/p&gt; &lt;ol&gt; &lt;li&gt;一个记录所有被考虑来寻找最短路径的方块（称为open列表）&lt;/li&gt; &lt;li&gt;一个记录下不会再被考虑的方块（称为closed列表）。&lt;/li&gt; &lt;/ol&gt; &lt;p&gt;开始点称为A。结束点称为B。 首先在closed列表中添加当前位置。 然后，把所有与它当前位置相邻的可通行小方块添加到open列表中。需要判断在open列表中哪项才是最短路径， 需要给每一个方块的值，这个值被称为路径增量。&lt;/p&gt; &lt;h4&gt;路径增量&lt;/h4&gt; &lt;p&gt;给每一个方块一个G+H值，称为F：&lt;/p&gt; &lt;ol&gt; &lt;li&gt;G是从开始点A到当前方块的移动量。相邻小方块的移动量为1，所以G值会越远越大。&lt;/li&gt; &lt;li&gt;H是当前方块到目标点得移动量估算值。 这个称为探视，这仅仅是个估算值，因为我们不确定移动量是多少。&lt;/li&gt; &lt;/ol&gt; &lt;p&gt;下面是关于G值和H值的详细分析。&lt;/p&gt; &lt;h4&gt;关于G值&lt;/h4&gt; &lt;p&gt;这个简单。&lt;/p&gt; &lt;h4&gt;关于H值&lt;/h4&gt; &lt;p&gt;移动量估算值离真实值越接近，最终的路劲会更加精确。为了简化问题， 我们使用曼哈顿长。 就是计算距离点B剩下的水平和垂直的方块数量，略去了障碍物或者不同陆地类型的数量。&lt;/p&gt; &lt;h4&gt;A星算法&lt;/h4&gt; &lt;p&gt;A星算法：&lt;/p&gt; &lt;ol&gt; &lt;li&gt;将方块添加到open列表中，该列表有最小的和值。 称此方块为S。&lt;/li&gt; &lt;li&gt;将S从open列表中移除，然后添加S到closed列表中。&lt;/li&gt; &lt;li&gt;对于与S相邻的每一块可通行的方块T： &lt;ol&gt; &lt;li&gt;如果T在closed列表中，不管。&lt;/li&gt; &lt;li&gt;如果T不在open列表中，添加且计算和值。&lt;/li&gt; &lt;li&gt;如果T已经在open列表中：检查F是否更小，如果是更新它的和值和前继。&lt;/li&gt; &lt;/ol&gt; &lt;/li&gt;...</content>
+ </entry>
+
+ 
+
+ <entry>
+   <title>CSS布局</title>
+   <link href="http://www.kunsun.info/2015/06/02/css-layout/"/>
+   <id>http://www.kunsun.info/2015/06/02/css-layout</id>
+   <updated>2015-06-02T00:00:00+08:00</updated>
+   <content type="html">&lt;p&gt;今天中午睡了一小会儿， 醒来到现在1个小时多点，读了这篇&lt;a href=&quot;http://zh.learnlayout.com/&quot;&gt;CSS布局的文章&lt;/a&gt;，感觉有所收获，顾文之。&lt;/p&gt;
+
+&lt;p&gt;每个元素都有一个默认的display类型， 不过你可以随时的重写它。&lt;/p&gt;
+
+&lt;p&gt;设置块级元素左右边距为auto，可以使得水平居中。&lt;/p&gt;
+
+&lt;p&gt;使用max-width  代替width可以适应小窗口的情况。IE7+支持max-width.&lt;/p&gt;
+
+&lt;p&gt;当设置一个元素的 box-sizing: border-box; 时，此元素的内边距和边框，不会增加它的宽度了。IE8+支持max-width.&lt;/p&gt;
+
+&lt;p&gt;一个元素的默认Position值是static， 如果没有设置为其他的值， 那么它不会被定位的。
+relative表现和static本来一样，在元素上设置上下左右可以改变它位置，其他元素不会受它影响调整位置。
+fixed在移动浏览器中的支持很差，但是有相应的&lt;a href=&quot;http://bradfrostweb.com/blog/mobile/fixed-position/&quot;&gt;解决方案&lt;/a&gt;。
+absolute是相对于最近的没有“positioned”元素定位的。&lt;/p&gt;
+
+&lt;h3&gt;布局可以用好几种方法实现：&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;h4&gt;position：&lt;/h4&gt;
+
+&lt;p&gt;可以使用.container设置relative， 然后nav设置absolute, 然后content设置margin-left.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;h4&gt;float：&lt;/h4&gt;
+
+&lt;p&gt;使用float属性。 使用float很爽，但是要清楚之后的垃圾却有点费劲。请看做好的&lt;a href=&quot;http://stackoverflow.com/questions/211383/which-method-of-clearfix-is-best&quot;&gt;clearfix方法&lt;/a&gt;。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;h4&gt;百分比：&lt;/h4&gt;
+
+&lt;p&gt;使用这个方法的好处，就是在做响应式设计的时候会省事。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;h4&gt;inline-block&lt;/h4&gt;
+
+&lt;p&gt;这个属性可以代替掉float。 但是IE8+支持。需要和vertical-align一起使用。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;h4&gt;column&lt;/h4&gt;
+
+&lt;p&gt;这是非常新的属性。 IE10+。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;h4&gt;flex&lt;/h4&gt;
+
+&lt;p&gt;介绍最后一个牛逼的方法，就是flex。 IE10+。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
+
+ 
+
+ <entry>
+   <title>Modernizr分析</title>
+   <link href="http://www.kunsun.info/2015/05/30/modernizr/"/>
+   <id>http://www.kunsun.info/2015/05/30/modernizr</id>
+   <updated>2015-05-30T00:00:00+08:00</updated>
+   <content type="html">&lt;p&gt;一直认为学习一个工具或者一门语言做好的方法就是看原生文档， 这次&lt;a href=&quot;http://modernizr.com/&quot;&gt;Modernizr&lt;/a&gt;的学习再次确认了这个想法。 因为之前几天偷懒，三三两两的看关于Modernizr的中文文档，远没有今天专注花两个小时阅读&lt;a href=&quot;http://modernizr.com/docs/&quot;&gt;官方文档&lt;/a&gt;管用。 Modernizr会告诉你当前使用的浏览器是否原生支持了这些HTML5和CSS3特性。&lt;/p&gt; &lt;h3&gt;实现原理&lt;/h3&gt; &lt;p&gt;Javascript客户端检测有三种方法：&lt;/p&gt; &lt;ul&gt; &lt;li&gt;能力检测，也称为特征检测feature detection&lt;/li&gt; &lt;li&gt;怪癖检测quirks detection&lt;/li&gt; &lt;li&gt;还有用户代理检测,使用navigator.userAgent&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;Modernizr使用的就是最为人们广泛接受的能力检测，代替用户代理检测，这种方式不必顾及特定的浏览器如何如何，只要确定浏览器支持特定的能力，就可以给出解决方案。&lt;/p&gt; &lt;p&gt;Modernizr并不是使用JavScript动态地加载不同的样式表，而是使用非常简单的技术，将类添加到页面的&lt;html&gt;标签。 如果页面支持box-shadow属性， 那么Modernizr会添加boxshadow类。 如果不支持，那么它会用no-boxshadow类作为替代进行添加。&lt;/p&gt; &lt;h3&gt;Modernizr与html5shiv的区别&lt;/h3&gt; &lt;p&gt;Stackexchange上的一条&lt;a href=&quot;http://webmasters.stackexchange.com/questions/11729/whats-the-difference-between-modernizr-and-html5shiv&quot;&gt;回答&lt;/a&gt;说明了这个问题。&lt;/p&gt; &lt;blockquote&gt;&lt;p&gt;顺便提一个非常有意思的话题，前端经常提到的&lt;a href=&quot;http://www.cnblogs.com/ziyunfei/archive/2012/09/17/2688829.html&quot;&gt;shim与polyfill&lt;/a&gt;到底是什么？stackoverflow也有类似的&lt;a href=&quot;http://stackoverflow.com/questions/6599815/what-is-the-difference-between-a-shim-and-a-polyfill&quot;&gt;讨论&lt;/a&gt;。&lt;/p&gt;&lt;/blockquote&gt; &lt;h3&gt;Modernizr与respondjs的关系&lt;/h3&gt; &lt;p&gt;respondjs也是一个polyshiv。 如果生成Modernizr时包含了Media Query。那么两者都可以在旧版浏览器中实现媒体查询。下面这种写法是我认为的很好的实现方式。&lt;/p&gt; &lt;pre&gt;&lt;code&gt;&amp;lt;script&amp;gt;Modernizr.mq(&#39;(min-width:0)&#39;) || document.write(&#39;&amp;lt;script src=&quot;js/libs/respond.min.js&quot;&amp;gt;&amp;lt;\/script&amp;gt;&#39;)&amp;lt;/script&amp;gt; &lt;/code&gt;&lt;/pre&gt; &lt;p&gt;也可以使用&lt;a href=&quot;http://yepnopejs.com/&quot;&gt;Yepnope的方式&lt;/a&gt;。因为Modernizr的load方法自带有Yepnode。&lt;/p&gt; &lt;ul&gt; &lt;li&gt;这篇文章讲了如何使用respondjs实现responsive。&lt;a href=&quot;http://www.zell-weekeat.com/support-for-older-browsers/&quot;&gt;How to Build a Responsive Website That Supports Older Browsers&lt;/a&gt;&lt;/li&gt; &lt;li&gt;这篇&lt;a...</content>
+ </entry>
+
+ 
+
+ <entry>
+   <title>Classie.js源码分析</title>
+   <link href="http://www.kunsun.info/2015/05/29/classie.js/"/>
+   <id>http://www.kunsun.info/2015/05/29/classie.js</id>
+   <updated>2015-05-29T00:00:00+08:00</updated>
+   <content type="html">&lt;h3&gt;为什么要用classie.js&lt;/h3&gt; &lt;p&gt;classie是一个 awesome,lightweight script。 用来添加，移除，toggleDom元素的类。那为什么不用jquery呢， 因为jquery相对于这几个简单的功能太冗余了(just too bloated for your needs)。 classie.js 只有简单的81行，去掉注释，仅有51行， 我们现在就来分析源码。&lt;/p&gt; &lt;blockquote&gt;&lt;p&gt;这一篇blog也介绍了classie.js&lt;a href=&quot;http://callmenick.com/post/add-remove-and-check-classes&quot;&gt;前往&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt; &lt;h3&gt;怎么用&lt;/h3&gt; &lt;p&gt;classie只有4个方法，分别是：&lt;/p&gt; &lt;ul&gt; &lt;li&gt;hasClass&lt;/li&gt; &lt;li&gt;addClass&lt;/li&gt; &lt;li&gt;removeClass&lt;/li&gt; &lt;li&gt;toggleClass&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;顾名思义。 使用classie只需要在js代码中，直接使用classie.hasClass等方法即可。方法中只需要传递两个参数，第一个是Element元素，第二个是需要操作的class名称。&lt;/p&gt; &lt;h3&gt;源码分析&lt;/h3&gt; &lt;p&gt;首先介绍一下classList属性， classList是HTML5为javascipt的class操作新增的API。之前在操作类名时，需要通过className属性，className属性是一个字符串，使用className操作类名会涉及到很多字符串处理，很麻烦。新增的classList属性简化了这些操作。下面的代码就是使用classList属性进行了class的操作。&lt;/p&gt; &lt;pre&gt;&lt;code&gt;if ( &#39;classList&#39; in document.documentElement ) { hasClass = function( elem, c ) { return elem.classList.contains( c ); }; addClass =...</content>
+ </entry>
+
+ 
+
+ <entry>
+   <title>网上博物馆底层整体框架设计</title>
+   <link href="http://www.kunsun.info/2015/05/11/museum-framework-design/"/>
+   <id>http://www.kunsun.info/2015/05/11/museum-framework-design</id>
+   <updated>2015-05-11T00:00:00+08:00</updated>
+   <content type="html">&lt;h3&gt;一、PHP框架&lt;/h3&gt; &lt;p&gt;无论是从系统的稳定性，还是安全性来讲，将北京语言文化博物馆网站放到一个成熟框架中来开发是很切合实际的。&lt;/p&gt; &lt;p&gt;北京语言文化网上博物馆使用的是Laravel框架，Laravel框架是目前最受欢迎的PHP框架。&lt;/p&gt; &lt;blockquote&gt;&lt;p&gt;Laravel是2014与2015年美国&lt;a href=&quot;http://www.sitepoint.com/best-php-frameworks-2014/&quot; title=&quot;title&quot;&gt;最受欢迎的PHP框架&lt;/a&gt;，根据最受欢迎的PHP框架调查显示。&lt;/p&gt;&lt;/blockquote&gt; &lt;h3&gt;二、 设计模式&lt;/h3&gt; &lt;p&gt;MVC是一种组织结构设计模式，也是包括Laravel在内的所有主流框架使用的架构。要想先讲清网站的框架，需要先清楚MVC设计模式。&lt;/p&gt; &lt;p&gt;MVC的理念是将应用开发依据逻辑分隔为几个部分，然后各司其职，互有联系。它把应用分为了业务逻辑（即数据部分），用户界面（即视图部分），以及用于管理逻辑，用户输出，并在模型和视图中间起协调作用的控制部分（即控制器）。&lt;/p&gt; &lt;blockquote&gt;&lt;p&gt;这个模式最初由Trygve Reenskaug在使用Smalltalk-80语言时设计出，一开始它的名字叫做”模型-视图-控制器-编辑器”模式。《设计模式：可重用的面向对象软件元素》一书对MVC设计模式有详细的描述。&lt;/p&gt;&lt;/blockquote&gt; &lt;p&gt;MVC设计模式中其实也包含一些很经典的设计模式，即观察者模式，当模型发生了变化，视图都会进行相应，更新视图和模型变化联系紧密。&lt;/p&gt; &lt;p&gt; 其实MVC最初的设计并不是用来解决WEB中的问题的，那么MVC目前在WEB中是如何运用的呢。 如下图所示：&lt;/p&gt; &lt;p&gt; &lt;img src=&quot;http://htmljs.b0.upaiyun.com/uploads/1409725591244-webmvcflow_bacic.png&quot; title=&quot;MVC图示&quot; alt=&quot;MVC&quot; /&gt;&lt;/p&gt; &lt;h4&gt;MVC与WEB开发&lt;/h4&gt; &lt;p&gt;先看看在web开发中，MVC的具体含义。&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;h4&gt;Model&lt;/h4&gt; &lt;p&gt; 模型代表的是一个应用的的数据，一般一个模型都对应着一张数据表，通过模型来操作数据表，与数据库进行交互。&lt;/p&gt;&lt;/li&gt; &lt;li&gt;&lt;h4&gt;View&lt;/h4&gt; &lt;p&gt; 视图代表用户界面，WEB应用都是以HTML的形式呈现，他们用来展示需要呈现给用户的数据。&lt;/p&gt;&lt;/li&gt; &lt;li&gt;&lt;h4&gt;Controller&lt;/h4&gt; &lt;p&gt; 控制器是用来连接模型和视图的中间层。处理来自用户的请求，然后从模型中取出数据传递给视图。&lt;/p&gt;&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;在网上博物馆的设计上会扩展原有的Model, 对Model需要增加数据验证功能，给具体的Model添加验证器。另外也需要扩展Model的功能，在口传文化项目中一个模型对应三个数据库，分别叫卖视频，叫卖人，叫卖物品，三个数据表中是有联系的，所以也需要在Model中间建立表的联系。Laravel数据库操作使用的是Eloquent ORM，由于ORM内部的完善的设计，会使数据库操作更加方便和安全，不会有SQL注入等安全漏洞的出现。&lt;/p&gt; &lt;p&gt;现在已经讲了MVC的具体含义了。但是有一个特别重要的概念还没有讲到。对于一个大型的应用，会有很多控制器来处理不同的请求。那么控制器是如何判断自己应该处理哪个请求呢。这里就用到了图示中的 &lt;em&gt;Front Controller&lt;/em&gt; 。&lt;/p&gt; &lt;p&gt;Front Controller实际上是一个路由控制器，用户发来一个请求，请求以路由的形式呈现，类似http://example/post/3这样的形式。然后Front Controller会依据不同的路由请求，反馈给用户不同的控制器。所以首要的问题就是如何构造一个完整的&lt;em&gt;Routing&lt;/em&gt;（路由）表。&lt;/p&gt; &lt;h3&gt;三、 路由设计&lt;/h3&gt; &lt;p&gt;网上博物馆的路由设计采取&lt;em&gt;REST&lt;/em&gt;（表征性状态传输）设计风格。&lt;/p&gt; &lt;blockquote&gt;&lt;p&gt;REST是由Roy Fielding博士在2000年他的博士论文中提出来的一种软件架构风格。HTTP连接是无状态的，而REST传输会包含应用的所有状态信息，因此可以大幅降低对HTTP连接的重复请求资源消耗。&lt;/p&gt;&lt;/blockquote&gt;...</content>
+ </entry>
+
+ 
+
+ <entry>
+   <title>网上博物馆各项目数据格式</title>
+   <link href="http://www.kunsun.info/2015/05/11/museum-data-format/"/>
+   <id>http://www.kunsun.info/2015/05/11/museum-data-format</id>
+   <updated>2015-05-11T00:00:00+08:00</updated>
+   <content type="html">&lt;p&gt;由于北京语言文化网上博物馆的数据分类特别多，所以文章对所有的数据条目进行了一个整理。&lt;/p&gt; &lt;h3&gt;吟诵：&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;北京话吟诵：标题 标题图 吟诵者信息 视/音频 吟诵内容 说明 文件类型&lt;/li&gt; &lt;li&gt;普通话吟诵：标题 标题图 吟诵者信息 视/音频 吟诵内容 说明（为空） 文件类型&lt;/li&gt; &lt;li&gt;京外吟诵全景：标题 标题图 吟诵者信息 视/音频 吟诵内容 说明 文件类型&lt;/li&gt; &lt;li&gt;吟诵录像教学： 标题 标题图 吟诵者信息 视/音频 吟诵内容 说明 文件类型 吟诵文献：两个docx文档 吟诵课件：10个ppt 吟诵论文： 数个docx文档 简介和什么是吟诵&lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;地名&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;地名：地名 地理位置 管辖 普通话音 北京音 繁体 介绍 扩展说明&lt;/li&gt; &lt;li&gt;少简介&lt;/li&gt; &lt;/ul&gt;...</content>
+ </entry>
+
+ 
+
+</feed>

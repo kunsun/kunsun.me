@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Meta -->
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta name="generator" content="Jekyll">
+
+	<title>Classie.js源码分析</title>
+
+	<!-- CSS & fonts -->
+
+	<link rel="stylesheet" href="/assets/css/github-markdown.css">
+	<link rel="stylesheet" href="/assets/css/main.css">
+
+	<style>
+	    .markdown-body {
+	        min-width: 200px;
+	        max-width: 960px;
+	        margin: 0 auto;
+	        padding: 30px;
+	    }
+	</style>
+
+</head>
+
+
+<body>
+	<div id="wrap">
+	  	
+	  	<!-- Navigation -->
+	  	<nav id="nav">
+	<div id="nav-list">
+		<a href="/">首页</a>
+
+		<!-- Nav pages -->
+	  
+	    
+	      <a href="/about/" title="关于Kunsun">关于Kunsun</a>
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+    
+    <!-- Nav links -->
+	  <a href="https://github.com/kunsun">Github</a>
+
+	</div>
+  
+  <!-- Nav footer -->
+	
+	  <footer>
+	
+	<span>欢迎来到kunsun的</span>
+	<br>
+	<span>个人网站</span>
+
+</footer>
+	
+
+</nav>
+
+    
+    <!-- Icon menu -->
+	  <a href="#" id="nav-menu">
+	  	<div id="menu"></div>
+	  </a>
+
+      <!-- Header -->
+      
+        <header id="header">
+	<a href="/">
+		<!-- <img src="/img/emerald.svg" alt="Emerald Logo"> -->
+	  <h1>kunsun</h1>
+	</a>
+</header>
+
+      
+
+    <!-- Main content -->
+	  <div id="container">
+		  
+		<main>
+
+			<article id="post-page" class="markdown-body">
+	<h2>Classie.js源码分析</h2>		
+	<time datetime="2015-05-29T00:00:00+08:00" class="by-line">29 May 2015</time>
+	<div class="content">
+
+		<h3>为什么要用classie.js</h3>
+
+<p>classie是一个 awesome,lightweight script。 用来添加，移除，toggleDom元素的类。那为什么不用jquery呢， 因为jquery相对于这几个简单的功能太冗余了(just too bloated for your needs)。 classie.js 只有简单的81行，去掉注释，仅有51行， 我们现在就来分析源码。</p>
+
+<blockquote><p>这一篇blog也介绍了classie.js<a href="http://callmenick.com/post/add-remove-and-check-classes">前往</a></p></blockquote>
+
+<h3>怎么用</h3>
+
+<p>classie只有4个方法，分别是：</p>
+
+<ul>
+<li>hasClass</li>
+<li>addClass</li>
+<li>removeClass</li>
+<li>toggleClass</li>
+</ul>
+
+
+<p>顾名思义。 使用classie只需要在js代码中，直接使用classie.hasClass等方法即可。方法中只需要传递两个参数，第一个是Element元素，第二个是需要操作的class名称。</p>
+
+<h3>源码分析</h3>
+
+<p>首先介绍一下classList属性， classList是HTML5为javascipt的class操作新增的API。之前在操作类名时，需要通过className属性，className属性是一个字符串，使用className操作类名会涉及到很多字符串处理，很麻烦。新增的classList属性简化了这些操作。下面的代码就是使用classList属性进行了class的操作。</p>
+
+<pre><code>if ( 'classList' in document.documentElement ) {
+    hasClass = function( elem, c ) {
+        return elem.classList.contains( c );
+    };
+    addClass = function( elem, c ) {
+        elem.classList.add( c );
+    };
+    removeClass = function( elem, c ) {
+        elem.classList.remove( c );
+    };
+}
+</code></pre>
+
+<p>支持className属性的浏览器有Firefox3.6+和Chrome。所以在低版本中使用了另外一种写法。</p>
+
+<pre><code>else {
+    hasClass = function( elem, c ) {
+        return classReg( c ).test( elem.className );
+    };
+    addClass = function( elem, c ) {
+        if ( !hasClass( elem, c ) ) {
+            elem.className = elem.className + ' ' + c;
+        }
+    };
+    removeClass = function( elem, c ) {
+        elem.className = elem.className.replace( classReg( c ), ' ' );
+    };
+}
+</code></pre>
+
+<p>其中classReg使用如下方法找到class ：</p>
+
+<pre><code>function classReg( className ) {
+    return new RegExp("(^|\\s+)" + className + "(\\s+|$)");
+}
+</code></pre>
+
+<p>这里使用的是对className属性进行字符串处理。</p>
+
+<p>最后加上toggleClass。</p>
+
+<pre><code>function toggleClass( elem, c ) {
+    var fn = hasClass( elem, c ) ? removeClass : addClass;
+    fn( elem, c );
+}
+</code></pre>
+
+<h3>总结</h3>
+
+<p>classie.js源码分析如上。 附classie.js的<a href="https://github.com/desandro/classie">github地址</a>。</p>
+
+		
+	</div>
+</article>
+
+
+
+	  </main>
+		
+		  <!-- Pagination links -->
+      
+    
+	  </div>
+	    <!-- Footer -->
+	    <footer><span>@2015 - Kunsun</span></footer>
+
+	    
+
+	</div>
+  <!-- Script -->
+  <script src="/assets/js/main.js"></script>	
+
+</body>
+</html>

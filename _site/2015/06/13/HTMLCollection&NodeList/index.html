@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Meta -->
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta name="generator" content="Jekyll">
+
+	<title>NodeList和HTMLCollection的区别</title>
+
+	<!-- CSS & fonts -->
+
+	<link rel="stylesheet" href="/assets/css/github-markdown.css">
+	<link rel="stylesheet" href="/assets/css/main.css">
+
+	<style>
+	    .markdown-body {
+	        min-width: 200px;
+	        max-width: 960px;
+	        margin: 0 auto;
+	        padding: 30px;
+	    }
+	</style>
+
+</head>
+
+
+<body>
+	<div id="wrap">
+	  	
+	  	<!-- Navigation -->
+	  	<nav id="nav">
+	<div id="nav-list">
+		<a href="/">首页</a>
+
+		<!-- Nav pages -->
+	  
+	    
+	      <a href="/about/" title="关于Kunsun">关于Kunsun</a>
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+    
+    <!-- Nav links -->
+	  <a href="https://github.com/kunsun">Github</a>
+
+	</div>
+  
+  <!-- Nav footer -->
+	
+	  <footer>
+	
+	<span>欢迎来到kunsun的</span>
+	<br>
+	<span>个人网站</span>
+
+</footer>
+	
+
+</nav>
+
+    
+    <!-- Icon menu -->
+	  <a href="#" id="nav-menu">
+	  	<div id="menu"></div>
+	  </a>
+
+      <!-- Header -->
+      
+        <header id="header">
+	<a href="/">
+		<!-- <img src="/img/emerald.svg" alt="Emerald Logo"> -->
+	  <h1>kunsun</h1>
+	</a>
+</header>
+
+      
+
+    <!-- Main content -->
+	  <div id="container">
+		  
+		<main>
+
+			<article id="post-page" class="markdown-body">
+	<h2>NodeList和HTMLCollection的区别</h2>		
+	<time datetime="2015-06-13T00:00:00+08:00" class="by-line">13 Jun 2015</time>
+	<div class="content">
+
+		<p>NodeList和HTMLCollection是Dom中两个非常相似的概念，今天研究了一小会会，总结一下下。</p>
+
+<p>都是array-like object</p>
+
+<p>getElementsByName(),Node.childNodes,document.querySelectorAll返回NodeList对象，而类似getElementsByTagName(),document.images() 和 document.forms() 的属性为HTMLCollection对象。</p>
+
+<p>都是只读的类数组对象。 有length属性。</p>
+
+<p>不能直接在NodeList和HTML集合上调用Array方法，但可以简介的使用。</p>
+
+<pre><code>var content = Array.prototype.map.call(document.getElementsByTagName("p"),function(e){ return e.innerHTML; });
+</code></pre>
+
+<p>NodeList和HTMLCollection对象不是历史文档状态的一个静态快照，而通常是实时的，并且当文档变化时他们所包含的元素列表能随之改变。</p>
+
+<p>They differ in the methods they provide and in the type of nodes they can contain. While a NodeList can contain any noe type, an HTMLCollection is supposed to only contain Element nodes.</p>
+
+<p>An HTMLCollection provides the same methods as a NodeList and additionally amethod called namedItem.</p>
+
+<blockquote><p><a href="http://stackoverflow.com/questions/15763358/difference-between-htmlcollection-nodelists-and-arrays-of-objects">Difference between HTMLCollection, NodeLists, and arrays of objects</a></p></blockquote>
+
+		
+	</div>
+</article>
+
+
+
+	  </main>
+		
+		  <!-- Pagination links -->
+      
+    
+	  </div>
+	    <!-- Footer -->
+	    <footer><span>@2015 - Kunsun</span></footer>
+
+	    
+
+	</div>
+  <!-- Script -->
+  <script src="/assets/js/main.js"></script>	
+
+</body>
+</html>
