@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 连笔字书写 API文档 · Kunsun</title><meta name="description" content="连笔字书写 API文档 - yangkun"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="http://fonts.useso.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/sunchongsheng" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/pinggod" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">连笔字书写 API文档</h1><div class="post-time">Nov 4, 2015</div><div class="post-content"><p>连笔字书写目前做的是汉字的展示和练习。 展示主要指标准字。练习指自己也可以在画布上练习写字。写好一个字之后，需要把多个字放入一个页面中。页面是多个字的组合，可以是对联，也可以是成语。<br><a id="more"></a></p>
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 连笔字书写 API文档 · Kunsun</title><meta name="description" content="连笔字书写 API文档 - yangkun"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="http://fonts.useso.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><header><a href="/" class="logo-link"><img src="/logo.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="resume" target="_self" class="nav-list-link">RESUME</a></li><li class="nav-list-item"><a href="https://github.com/kunsun" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">连笔字书写 API文档</h1><div class="post-time">Nov 4, 2015</div><div class="post-content"><p>连笔字书写目前做的是汉字的展示和练习。 展示主要指标准字。练习指自己也可以在画布上练习写字。写好一个字之后，需要把多个字放入一个页面中。页面是多个字的组合，可以是对联，也可以是成语。<br><a id="more"></a></p>
 <h3 id="面向对象思路"><a href="#面向对象思路" class="headerlink" title="面向对象思路"></a>面向对象思路</h3><p>将字看做一个对象，命名为Character,单个字的操作都交给它处理。 例如，字的书写、字大小变化、字位置平移。 将页面看做一个对象，这里以成语为例（因为够简单），字与字之间的关系都交给它处理。例如，添加字、删除字、获取当前操作的是哪个字。 </p>
 <h3 id="Character-js-介绍"><a href="#Character-js-介绍" class="headerlink" title="Character.js 介绍"></a>Character.js 介绍</h3><p>Character.js中只有Character一个对象， 使用立即执行函数封装所有变量，只通过window[‘Character’] = Character，使Character可以被访问。因为需要用到Lodash这个库的extend和cloneDeep方法，通过(function(/<em>){})(/</em>)引入（和引入JQuery类似）。然后Character对象的创建使用最常用的对象创建方法：构造函数模式和原型模式混成的模式（参见：《Javascript高级程序设计第三版》159页）。<br>写一个字需要两部分，数据和控制参数。 数据就是strokeArray（笔画数组）,参数就是opts（控制参数）。</p>
 <ul>
@@ -50,9 +50,12 @@
 <li><p>核心method：</p>
 <ul>
 <li>changeXY(strokeArray, opts): 根据参数opts，更新strokeArray，目前可以改变单个点的x,y,w数值，因为t,p,v不影响字的绘制，所以没有更改。</li>
-<li>drawAllPoint（canvas, strokeArray）: 依据字的坐标(x,y)和宽度w数据，绘制到指定canvas上。<br>外部只需要调用两个方法就OK。<h3 id="Idiom-js介绍"><a href="#Idiom-js介绍" class="headerlink" title="Idiom.js介绍"></a>Idiom.js介绍</h3>每个页面需要三部分， 改变参数之前的字的数组charArrayOrigin， 改变参数后的字的数组charArray和页面的控制参数opts。<br>有三个数据很关键， charArray是当前页中的所有字的数据，charArrayOrigin是当前页中的所有字的原始数据（参数未做改变）,charPointer当前操作的字的指针。</li>
+<li>drawAllPoint（canvas, strokeArray）: 依据字的坐标(x,y)和宽度w数据，绘制到指定canvas上。<br>外部只需要调用两个方法就OK。</li>
 </ul>
 </li>
+</ul>
+<h3 id="Idiom-js介绍"><a href="#Idiom-js介绍" class="headerlink" title="Idiom.js介绍"></a>Idiom.js介绍</h3><p>每个页面需要三部分， 改变参数之前的字的数组charArrayOrigin， 改变参数后的字的数组charArray和页面的控制参数opts。<br>有三个数据很关键， charArray是当前页中的所有字的数据，charArrayOrigin是当前页中的所有字的原始数据（参数未做改变）,charPointer当前操作的字的指针。</p>
+<ul>
 <li><p>Options:<br>默认的Opts:   </p>
 <pre><code>aspectWidth:600,
 aspectRatio: 1/3,
@@ -66,22 +69,20 @@ charBoxRatio: 4/3
 <li>charBoxRatio: 宽高比</li>
 </ul>
 </li>
-<li><p>核心method: </p>
-<ul>
+<li>核心method: <ul>
 <li>addChar(strokeArray,opts): 先将传入的数据添加到charArrayOrigin,改变字的startPosition和charBoxWidth后，将数据添加到charArray中。</li>
 <li>removeChar: charPointer向后移动一个单位</li>
 <li>clearChar: 清除当前charPointer上的数据</li>
 <li>getChar: 获取当前操作区域的字数据</li>
-<li><p>getChar: 获取当前操作区域的字原始数据</p>
+<li>getChar: 获取当前操作区域的字原始数据</li>
+</ul>
+</li>
+</ul>
 <h3 id="如何使用和Demo"><a href="#如何使用和Demo" class="headerlink" title="如何使用和Demo"></a>如何使用和Demo</h3><p>首先需要引入这三个js文件：</p>
 <pre><code>&lt;script src=&quot;js/lodash.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src = &quot;js/character.js&quot;&gt;&lt;/script&gt;
 &lt;script src = &quot;js/idiom.js&quot;&gt;&lt;/script&gt;        
-</code></pre></li>
-</ul>
-</li>
-</ul>
-<p>1 默认写字画布：</p>
+</code></pre><p>1 默认写字画布：</p>
 <pre><code>html: &lt;canvas id=&quot;canvas&quot; &gt;不支持&lt;/canvas&gt;
 js: var canvas = document.getElementById(&apos;canvas&apos;);
     var char = new Character(canvas);      
@@ -90,7 +91,6 @@ js: var canvas = document.getElementById(&apos;canvas&apos;);
 js: var canvas = document.getElementById(&apos;canvas&apos;);
     var char = new Character(canvas,{gaussian:2.0, aspectWidth:     300});            
 </code></pre><p>图示：</p>
-<p><img src="~/15-51-26.jpg" alt=""></p>
 <p>3 宽度为400，可显示xml标准字的画布：</p>
 <pre><code>html: &lt;canvas id=&quot;canvas&quot; &gt;不支持&lt;/canvas&gt;
       &lt;input type=&quot;file&quot; id=&quot;xmlfile&quot; name=&quot;xml&quot; accept=&quot;application/xml&quot; title=&quot;选择xml格式文字&quot; /&gt;     
@@ -98,7 +98,6 @@ js: var canvas = document.getElementById(&apos;canvas&apos;);
     var xmlFile = document.getElementById(&apos;xmlfile&apos;);
     var char = new Character(canvas,{isXML:true, gaussian:2.0, },xmlFile );
 </code></pre><p>图示：</p>
-<p><img src="~/15-59-28.jpg" alt=""></p>
 <p>4 默认成语画布：</p>
 <pre><code>html: &lt;canvas id=&quot;canvas&quot; &gt;不支持&lt;/canvas&gt;
 js: var canvas = document.getElementById(&apos;canvas&apos;);
@@ -117,4 +116,12 @@ idiom.addChar(char.strokeArray, char.opts);
 );
 char.drawAllPoints(canvas, idiom.charArray[idiom01.charPointer-1].strokeArray);
 </code></pre><p>OK~ 以上就是目前两个对象的介绍。 基本框架已经ok，后续可能会继续封装一些内容进去。 如字对象可以尝试把参数调节UI控件和显示状态UI控件都封装进去。完。</p>
-</div></article></div></section><footer><div class="paginator"><a href="/2015/06/13/2015-06-13-HTMLCollection&amp;NodeList/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2016 <a href="http://kunsun.me">yangkun</a>, unless otherwise noted.</p></div></footer><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "//hm.baidu.com/hm.js?a36e15d9e2adec9a21fcdd9f686b1ed2";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script><script src="https://cdn.bootcss.com/mathjax/2.5.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></body></html>
+</div></article></div></section><footer><div class="paginator"><a href="/2015/06/13/2015-06-13-HTMLCollection&amp;NodeList/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
+var disqus_identifier = '2015/11/04/2015-10-30-wringting-api/';
+var disqus_title = '连笔字书写 API文档';
+var disqus_url = 'http://kunsun.me/2015/11/04/2015-10-30-wringting-api/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//seansun.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2016 <a href="http://kunsun.me">yangkun</a>, powered by hexo theme apollo</p></div></footer><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "//hm.baidu.com/hm.js?a36e15d9e2adec9a21fcdd9f686b1ed2";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script><script src="https://cdn.bootcss.com/mathjax/2.5.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></body></html>
