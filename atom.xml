@@ -492,6 +492,71 @@ if (collection.length) {
   </entry>
   
   <entry>
+    <title>网上博物馆各项目数据格式</title>
+    <link href="http://kunsun.me/2015/05/11/2015-05-11-museum-data-format/"/>
+    <id>http://kunsun.me/2015/05/11/2015-05-11-museum-data-format/</id>
+    <published>2015-05-10T16:00:00.000Z</published>
+    <updated>2016-03-03T14:37:47.000Z</updated>
+    
+    <content type="html">&lt;p&gt;由于北京语言文化网上博物馆的数据分类特别多，所以文章对所有的数据条目进行了一个整理。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;###吟诵：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;北京话吟诵：标题    标题图    吟诵者信息     视/音频    吟诵内容    说明    文件类型&lt;/li&gt;
+&lt;li&gt;普通话吟诵：标题    标题图    吟诵者信息     视/音频    吟诵内容    说明（为空）    文件类型&lt;/li&gt;
+&lt;li&gt;京外吟诵全景：标题    标题图    吟诵者信息     视/音频    吟诵内容    说明    文件类型&lt;/li&gt;
+&lt;li&gt;吟诵录像教学： 标题    标题图    吟诵者信息     视/音频    吟诵内容    说明    文件类型&lt;br&gt;吟诵文献：两个docx文档&lt;br&gt;吟诵课件：10个ppt&lt;br&gt;吟诵论文： 数个docx文档&lt;br&gt;简介和什么是吟诵&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;###地名&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;地名：地名  地理位置   管辖   普通话音    北京音    繁体   介绍    扩展说明&lt;/li&gt;
+&lt;li&gt;少简介&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;###方言土语&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;方言土语：编号  图通话词条  北京话词条   读音   释义    声音   图片   类别&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;###北京话文献&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;北京话：类型，书名，作者，版本，出版社，年代，页数，简介，备注，封面。目录，pdf&lt;/li&gt;
+&lt;li&gt;少pdf&lt;/li&gt;
+&lt;li&gt;简介&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;###清代御诗&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;御制诗初集：标题，诗作，注释，所写年代，作者，照片&lt;/li&gt;
+&lt;li&gt;乐善堂集：标题，诗作，注释，所写年代，作者，照片&lt;/li&gt;
+&lt;li&gt;御制诗二集：标题，诗作，注释，所写年代，作者，照片&lt;/li&gt;
+&lt;li&gt;御制诗三集：标题，诗作，注释，所写年代，作者，照片&lt;/li&gt;
+&lt;li&gt;简介&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;###话说老北京&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;话说老北京：编号，普通话词条，北京话说法，读音，释义，声音，图片，类别&lt;/li&gt;
+&lt;li&gt;简介&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;###叫卖&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;发音人资料：名字，性别，年龄，地址，说明，图片&lt;/li&gt;
+&lt;li&gt;叫卖视频： 标题，标题图快照，视频文件名，脚本xml，内容，表演者名字。 &lt;/li&gt;
+&lt;li&gt;叫卖响器名物：道具名称，道具图片，道具说明 &lt;/li&gt;
+&lt;li&gt;简介&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;###外语&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;外语： 照片名，功能，类别1，类别2，拍摄日期，拍照人，评议人，地点，内容，评价。&lt;br&gt;简介&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于北京语言文化网上博物馆的数据分类特别多，所以文章对所有的数据条目进行了一个整理。&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>网上博物馆底层整体框架设计</title>
     <link href="http://kunsun.me/2015/05/11/2015-05-11-museum-framework-design/"/>
     <id>http://kunsun.me/2015/05/11/2015-05-11-museum-framework-design/</id>
@@ -634,71 +699,6 @@ if (collection.length) {
       <category term="模式" scheme="http://kunsun.me/tags/%E6%A8%A1%E5%BC%8F/"/>
     
       <category term="WEB" scheme="http://kunsun.me/tags/WEB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>网上博物馆各项目数据格式</title>
-    <link href="http://kunsun.me/2015/05/11/2015-05-11-museum-data-format/"/>
-    <id>http://kunsun.me/2015/05/11/2015-05-11-museum-data-format/</id>
-    <published>2015-05-10T16:00:00.000Z</published>
-    <updated>2016-03-03T14:37:47.000Z</updated>
-    
-    <content type="html">&lt;p&gt;由于北京语言文化网上博物馆的数据分类特别多，所以文章对所有的数据条目进行了一个整理。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;###吟诵：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;北京话吟诵：标题    标题图    吟诵者信息     视/音频    吟诵内容    说明    文件类型&lt;/li&gt;
-&lt;li&gt;普通话吟诵：标题    标题图    吟诵者信息     视/音频    吟诵内容    说明（为空）    文件类型&lt;/li&gt;
-&lt;li&gt;京外吟诵全景：标题    标题图    吟诵者信息     视/音频    吟诵内容    说明    文件类型&lt;/li&gt;
-&lt;li&gt;吟诵录像教学： 标题    标题图    吟诵者信息     视/音频    吟诵内容    说明    文件类型&lt;br&gt;吟诵文献：两个docx文档&lt;br&gt;吟诵课件：10个ppt&lt;br&gt;吟诵论文： 数个docx文档&lt;br&gt;简介和什么是吟诵&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;###地名&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;地名：地名  地理位置   管辖   普通话音    北京音    繁体   介绍    扩展说明&lt;/li&gt;
-&lt;li&gt;少简介&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;###方言土语&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;方言土语：编号  图通话词条  北京话词条   读音   释义    声音   图片   类别&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;###北京话文献&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;北京话：类型，书名，作者，版本，出版社，年代，页数，简介，备注，封面。目录，pdf&lt;/li&gt;
-&lt;li&gt;少pdf&lt;/li&gt;
-&lt;li&gt;简介&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;###清代御诗&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;御制诗初集：标题，诗作，注释，所写年代，作者，照片&lt;/li&gt;
-&lt;li&gt;乐善堂集：标题，诗作，注释，所写年代，作者，照片&lt;/li&gt;
-&lt;li&gt;御制诗二集：标题，诗作，注释，所写年代，作者，照片&lt;/li&gt;
-&lt;li&gt;御制诗三集：标题，诗作，注释，所写年代，作者，照片&lt;/li&gt;
-&lt;li&gt;简介&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;###话说老北京&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;话说老北京：编号，普通话词条，北京话说法，读音，释义，声音，图片，类别&lt;/li&gt;
-&lt;li&gt;简介&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;###叫卖&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;发音人资料：名字，性别，年龄，地址，说明，图片&lt;/li&gt;
-&lt;li&gt;叫卖视频： 标题，标题图快照，视频文件名，脚本xml，内容，表演者名字。 &lt;/li&gt;
-&lt;li&gt;叫卖响器名物：道具名称，道具图片，道具说明 &lt;/li&gt;
-&lt;li&gt;简介&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;###外语&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;外语： 照片名，功能，类别1，类别2，拍摄日期，拍照人，评议人，地点，内容，评价。&lt;br&gt;简介&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;由于北京语言文化网上博物馆的数据分类特别多，所以文章对所有的数据条目进行了一个整理。&lt;br&gt;
-    
-    </summary>
-    
     
   </entry>
   
