@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kunsun.me/"/>
-  <updated>2016-03-03T14:37:47.000Z</updated>
+  <updated>2016-03-04T06:12:54.000Z</updated>
   <id>http://kunsun.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://kunsun.me/2015/11/04/2015-10-30-wringting-api/"/>
     <id>http://kunsun.me/2015/11/04/2015-10-30-wringting-api/</id>
     <published>2015-11-04T10:27:00.000Z</published>
-    <updated>2016-03-03T14:37:47.000Z</updated>
+    <updated>2016-03-04T06:12:54.000Z</updated>
     
     <content type="html">&lt;p&gt;连笔字书写目前做的是汉字的展示和练习。 展示主要指标准字。练习指自己也可以在画布上练习写字。写好一个字之后，需要把多个字放入一个页面中。页面是多个字的组合，可以是对联，也可以是成语。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;面向对象思路&quot;&gt;&lt;a href=&quot;#面向对象思路&quot; class=&quot;headerlink&quot; title=&quot;面向对象思路&quot;&gt;&lt;/a&gt;面向对象思路&lt;/h3&gt;&lt;p&gt;将字看做一个对象，命名为Character,单个字的操作都交给它处理。 例如，字的书写、字大小变化、字位置平移。 将页面看做一个对象，这里以成语为例（因为够简单），字与字之间的关系都交给它处理。例如，添加字、删除字、获取当前操作的是哪个字。 &lt;/p&gt;
@@ -74,9 +74,12 @@
 &lt;li&gt;&lt;p&gt;核心method：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;changeXY(strokeArray, opts): 根据参数opts，更新strokeArray，目前可以改变单个点的x,y,w数值，因为t,p,v不影响字的绘制，所以没有更改。&lt;/li&gt;
-&lt;li&gt;drawAllPoint（canvas, strokeArray）: 依据字的坐标(x,y)和宽度w数据，绘制到指定canvas上。&lt;br&gt;外部只需要调用两个方法就OK。&lt;h3 id=&quot;Idiom-js介绍&quot;&gt;&lt;a href=&quot;#Idiom-js介绍&quot; class=&quot;headerlink&quot; title=&quot;Idiom.js介绍&quot;&gt;&lt;/a&gt;Idiom.js介绍&lt;/h3&gt;每个页面需要三部分， 改变参数之前的字的数组charArrayOrigin， 改变参数后的字的数组charArray和页面的控制参数opts。&lt;br&gt;有三个数据很关键， charArray是当前页中的所有字的数据，charArrayOrigin是当前页中的所有字的原始数据（参数未做改变）,charPointer当前操作的字的指针。&lt;/li&gt;
+&lt;li&gt;drawAllPoint（canvas, strokeArray）: 依据字的坐标(x,y)和宽度w数据，绘制到指定canvas上。&lt;br&gt;外部只需要调用两个方法就OK。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Idiom-js介绍&quot;&gt;&lt;a href=&quot;#Idiom-js介绍&quot; class=&quot;headerlink&quot; title=&quot;Idiom.js介绍&quot;&gt;&lt;/a&gt;Idiom.js介绍&lt;/h3&gt;&lt;p&gt;每个页面需要三部分， 改变参数之前的字的数组charArrayOrigin， 改变参数后的字的数组charArray和页面的控制参数opts。&lt;br&gt;有三个数据很关键， charArray是当前页中的所有字的数据，charArrayOrigin是当前页中的所有字的原始数据（参数未做改变）,charPointer当前操作的字的指针。&lt;/p&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Options:&lt;br&gt;默认的Opts:   &lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;aspectWidth:600,
 aspectRatio: 1/3,
@@ -90,22 +93,20 @@ charBoxRatio: 4/3
 &lt;li&gt;charBoxRatio: 宽高比&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;核心method: &lt;/p&gt;
-&lt;ul&gt;
+&lt;li&gt;核心method: &lt;ul&gt;
 &lt;li&gt;addChar(strokeArray,opts): 先将传入的数据添加到charArrayOrigin,改变字的startPosition和charBoxWidth后，将数据添加到charArray中。&lt;/li&gt;
 &lt;li&gt;removeChar: charPointer向后移动一个单位&lt;/li&gt;
 &lt;li&gt;clearChar: 清除当前charPointer上的数据&lt;/li&gt;
 &lt;li&gt;getChar: 获取当前操作区域的字数据&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;getChar: 获取当前操作区域的字原始数据&lt;/p&gt;
+&lt;li&gt;getChar: 获取当前操作区域的字原始数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&quot;如何使用和Demo&quot;&gt;&lt;a href=&quot;#如何使用和Demo&quot; class=&quot;headerlink&quot; title=&quot;如何使用和Demo&quot;&gt;&lt;/a&gt;如何使用和Demo&lt;/h3&gt;&lt;p&gt;首先需要引入这三个js文件：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;script src=&amp;quot;js/lodash.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
 &amp;lt;script src = &amp;quot;js/character.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
 &amp;lt;script src = &amp;quot;js/idiom.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;        
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;1 默认写字画布：&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;1 默认写字画布：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;html: &amp;lt;canvas id=&amp;quot;canvas&amp;quot; &amp;gt;不支持&amp;lt;/canvas&amp;gt;
 js: var canvas = document.getElementById(&amp;apos;canvas&amp;apos;);
     var char = new Character(canvas);      
@@ -114,7 +115,6 @@ js: var canvas = document.getElementById(&amp;apos;canvas&amp;apos;);
 js: var canvas = document.getElementById(&amp;apos;canvas&amp;apos;);
     var char = new Character(canvas,{gaussian:2.0, aspectWidth:     300});            
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;图示：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;~/15-51-26.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;3 宽度为400，可显示xml标准字的画布：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;html: &amp;lt;canvas id=&amp;quot;canvas&amp;quot; &amp;gt;不支持&amp;lt;/canvas&amp;gt;
       &amp;lt;input type=&amp;quot;file&amp;quot; id=&amp;quot;xmlfile&amp;quot; name=&amp;quot;xml&amp;quot; accept=&amp;quot;application/xml&amp;quot; title=&amp;quot;选择xml格式文字&amp;quot; /&amp;gt;     
@@ -122,7 +122,6 @@ js: var canvas = document.getElementById(&amp;apos;canvas&amp;apos;);
     var xmlFile = document.getElementById(&amp;apos;xmlfile&amp;apos;);
     var char = new Character(canvas,{isXML:true, gaussian:2.0, },xmlFile );
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;图示：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;~/15-59-28.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;4 默认成语画布：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;html: &amp;lt;canvas id=&amp;quot;canvas&amp;quot; &amp;gt;不支持&amp;lt;/canvas&amp;gt;
 js: var canvas = document.getElementById(&amp;apos;canvas&amp;apos;);
@@ -187,9 +186,9 @@ char.drawAllPoints(canvas, idiom.charArray[idiom01.charPointer-1].strokeArray);
     <link href="http://kunsun.me/2015/06/09/2015-06-09-A-star/"/>
     <id>http://kunsun.me/2015/06/09/2015-06-09-A-star/</id>
     <published>2015-06-08T16:00:00.000Z</published>
-    <updated>2016-03-03T14:37:47.000Z</updated>
+    <updated>2016-03-04T06:10:12.000Z</updated>
     
-    <content type="html">&lt;p&gt;&lt;img src=&quot;/img/A-star.jpg&quot; alt=&quot;Kunsun&quot; title=&quot;A star&quot;&gt;&lt;/p&gt;
+    <content type="html">&lt;p&gt;&lt;img src=&quot;/images/A-star.jpg&quot; alt=&quot;Kunsun&quot; title=&quot;A star&quot;&gt;&lt;/p&gt;
 &lt;p&gt;因为算法设计课需要讲算法，阿飞推介的A*算法，正好也与游戏相关，所以就花了一整天时间研究了一下。顺利完成。附图一张。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&quot;一只探路猫&quot;&gt;&lt;a href=&quot;#一只探路猫&quot; class=&quot;headerlink&quot; title=&quot;一只探路猫&quot;&gt;&lt;/a&gt;一只探路猫&lt;/h4&gt;&lt;p&gt;有一款游戏， 游戏中一只猫想要找到获取骨头的路线。猫想找到到达骨头的最短路径。&lt;/p&gt;
 &lt;h4 id=&quot;简化搜索区域&quot;&gt;&lt;a href=&quot;#简化搜索区域&quot; class=&quot;headerlink&quot; title=&quot;简化搜索区域&quot;&gt;&lt;/a&gt;简化搜索区域&lt;/h4&gt;&lt;p&gt;寻路的第一步是简化成容易控制的搜索区域。 使用正方形是作为寻路的单元最简单的。&lt;/p&gt;
@@ -251,7 +250,7 @@ if we get to here, then there is No Solution
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;/img/A-star.jpg&quot; alt=&quot;Kunsun&quot; title=&quot;A star&quot;&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;/images/A-star.jpg&quot; alt=&quot;Kunsun&quot; title=&quot;A star&quot;&gt;&lt;/p&gt;
 &lt;p&gt;因为算法设计课需要讲算法，阿飞推介的A*算法，正好也与游戏相关，所以就花了一整天时间研究了一下。顺利完成。附图一张。&lt;br&gt;
     
     </summary>
@@ -264,9 +263,9 @@ if we get to here, then there is No Solution
     <link href="http://kunsun.me/2015/06/09/2015-06-09-javascript-style-guide/"/>
     <id>http://kunsun.me/2015/06/09/2015-06-09-javascript-style-guide/</id>
     <published>2015-06-08T16:00:00.000Z</published>
-    <updated>2016-03-03T14:37:47.000Z</updated>
+    <updated>2016-03-04T08:02:31.000Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;function&quot;&gt;&lt;a href=&quot;#function&quot; class=&quot;headerlink&quot; title=&quot;####function&quot;&gt;&lt;/a&gt;####function&lt;/h2&gt;&lt;blockquote&gt;
+    <content type="html">&lt;blockquote&gt;
 &lt;p&gt;参照github上的&lt;a href=&quot;https://github.com/airbnb/javascript/tree/master/es5&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;文章&lt;/a&gt;。权当是学习笔记。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Anonymous function expressions hoist their variable name,but not the function assignment.&lt;/p&gt;
@@ -323,7 +322,7 @@ if (collection.length) {
     
     <summary type="html">
     
-      &lt;h2 id=&quot;function&quot;&gt;&lt;a href=&quot;#function&quot; class=&quot;headerlink&quot; title=&quot;####function&quot;&gt;&lt;/a&gt;####function&lt;/h2&gt;&lt;blockquote&gt;
+      &lt;blockquote&gt;
 &lt;p&gt;参照github上的&lt;a href=&quot;https://github.com/airbnb/javascript/tree/master/es5&quot;&gt;文章&lt;/a&gt;。权当是学习笔记。&lt;br&gt;
     
     </summary>
