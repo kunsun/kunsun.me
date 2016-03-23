@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kunsun.me/"/>
-  <updated>2016-03-23T11:52:27.000Z</updated>
+  <updated>2016-03-23T11:58:58.000Z</updated>
   <id>http://kunsun.me/</id>
   
   <author>
@@ -16,13 +16,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Javascript_Array</title>
+    <title>Javascript Array分析</title>
     <link href="http://kunsun.me/2016/03/23/Javascript-Array/"/>
     <id>http://kunsun.me/2016/03/23/Javascript-Array/</id>
     <published>2016-03-23T02:57:26.000Z</published>
-    <updated>2016-03-23T11:52:27.000Z</updated>
+    <updated>2016-03-23T11:58:58.000Z</updated>
     
-    <content type="html">&lt;p&gt;今天遇到一个问题，是JavaScript的数组操作，因为看不懂，所以研究了一下下，对于我这种立志于前端的，掌握Array操作还是很有必要的。&lt;/p&gt;
+    <content type="html">&lt;p&gt;今天遇到一个问题，是JavaScript的数组操作，因为看不懂，所以研究了一下下，对于我这种立志于前端的，掌握Array操作还是很有必要的。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&quot;遇到的问题&quot;&gt;&lt;a href=&quot;#遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;遇到的问题&quot;&gt;&lt;/a&gt;遇到的问题&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;var data = Array.apply(0, Array(31)).map(function(item, i) {
   // 产生31条数据
   i++;
@@ -80,8 +80,7 @@ Array.apply(null, {length: N}).map(Function.call, Math.random)
     
     <summary type="html">
     
-      &lt;p&gt;今天遇到一个问题，是JavaScript的数组操作，因为看不懂，所以研究了一下下，对于我这种立志于前端的，掌握Array操作还是很有必要的。&lt;/p&gt;
-&lt;h4 id=&quot;遇到的问题&quot;&gt;&lt;a href=&quot;#遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;遇到的问
+      &lt;p&gt;今天遇到一个问题，是JavaScript的数组操作，因为看不懂，所以研究了一下下，对于我这种立志于前端的，掌握Array操作还是很有必要的。&lt;br&gt;
     
     </summary>
     
