@@ -228,7 +228,7 @@ char.drawAllPoints(canvas, idiom.charArray[idiom01.charPointer-1].strokeArray);
     <link href="http://kunsun.me/2015/06/13/2015-06-13-HTMLCollection&NodeList/"/>
     <id>http://kunsun.me/2015/06/13/2015-06-13-HTMLCollection&NodeList/</id>
     <published>2015-06-12T16:00:00.000Z</published>
-    <updated>2016-03-03T14:37:47.000Z</updated>
+    <updated>2016-04-17T08:24:51.000Z</updated>
     
     <content type="html">&lt;p&gt;NodeList和HTMLCollection是Dom中两个非常相似的概念，今天研究了一小会会，总结一下下。&lt;/p&gt;
 &lt;p&gt;都是array-like object&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;getElementsByName(),Node.childNodes,document.querySelectorAll返回NodeList对象，而类似getElementsByTagName(),document.images() 和 document.forms() 的属性为HTMLCollection对象。&lt;/p&gt;
@@ -240,6 +240,16 @@ char.drawAllPoints(canvas, idiom.charArray[idiom01.charPointer-1].strokeArray);
 &lt;p&gt;An HTMLCollection provides the same methods as a NodeList and additionally amethod called namedItem.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/15763358/difference-between-htmlcollection-nodelists-and-arrays-of-objects&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Difference between HTMLCollection, NodeLists, and arrays of objects&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;#####2016.4.17补充&lt;br&gt;读《高性能JavaScript》的遍历DOM一节，看到这么一段话：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;querySelectorAll()方法使用CSS选择器作为参数并返回一个NodeList–包含着匹配节点的类数组对象。这个方法不会返回HTML集合，因此返回的节点不会对应实时的文档结构。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;然后发现和我原来的认知是不统一的，所以又查了一下文档。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;主要不同在于HTMLCollection是元素集合而NodeList是节点集合(即可以包含元素，也可以包含文本节点)。所以node.childNodes返回NodeList,而node.children和node.getElementsByXXX返回HTMLCollection.&lt;/p&gt;
+&lt;p&gt;唯一要注意的是querySelectorAll返回的虽然是NodeList,但实际上是元素集合，而且是静态的。&lt;/p&gt;
 &lt;/blockquote&gt;
 </content>
     
