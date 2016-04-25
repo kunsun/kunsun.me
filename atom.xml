@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kunsun.me/"/>
-  <updated>2016-03-23T11:58:58.000Z</updated>
+  <updated>2016-04-25T02:30:29.000Z</updated>
   <id>http://kunsun.me/</id>
   
   <author>
@@ -16,11 +16,57 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Kalman-Filter卡尔曼滤波</title>
+    <link href="http://kunsun.me/2016/04/20/Kalman-Filter/"/>
+    <id>http://kunsun.me/2016/04/20/Kalman-Filter/</id>
+    <published>2016-04-20T08:49:48.000Z</published>
+    <updated>2016-04-25T02:30:29.000Z</updated>
+    
+    <content type="html">&lt;p&gt;近期在写论文，学术论文。 度过一个特别痛苦的一个月，非常焦虑，很痛苦，却一无所成！最近这一周把心态慢下来，然后慢慢的做事情，反而每天都有一些收获，回头看，像是渡劫。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;今天研究滤波算法，想找一种站得住的方法，尝试把压力值加入到宽度控制函数中，或者寻求一种和前人不一样的对速度的处理方法。在寻找新方法的过程中，自然而然也对旧方法的可行性有一些思考。像如把加速度加入到宽度控制函数中，或者将卡尔曼滤波用到宽度控制函数中。前者比较简单，改改程序就好，后者比较复杂，有一些高技巧的算法在支撑着。所以借着写文章的思路，分析一下。&lt;/p&gt;
+&lt;h4 id=&quot;卡尔曼滤波原理&quot;&gt;&lt;a href=&quot;#卡尔曼滤波原理&quot; class=&quot;headerlink&quot; title=&quot;卡尔曼滤波原理&quot;&gt;&lt;/a&gt;卡尔曼滤波原理&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;状态预测(转移)公式&lt;/strong&gt;，F状态转移矩阵和B控制矩阵， 加速度是控制量。 状态转移，通过上一个状态的宽度和加速度，预测下一个状态的宽度变化，这只是一个估计量。推测包含噪声，噪声越大，不确定性越大。&lt;/li&gt;
+&lt;li&gt;引入协方差矩阵，是为了表示两个维度的相关程度。 协方差矩阵表示不确定性的大小，也就是噪声的大小。 &lt;strong&gt;得到协方差的转换公式&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;观测值也是不可靠的，有噪声，所以需要和预测值结合。&lt;/li&gt;
+&lt;li&gt;状态更新： 实际观测值与预期观测值的差距，然后乘以卡尔曼系数K,相应预测模型多一点还是观察模型多一点。&lt;/li&gt;
+&lt;li&gt;得到K时刻的最优误差估计，为下一步服务。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;前两个是预测， 后三个是更新。&lt;/p&gt;
+&lt;h4 id=&quot;宽度控制中卡尔曼滤波的应用&quot;&gt;&lt;a href=&quot;#宽度控制中卡尔曼滤波的应用&quot; class=&quot;headerlink&quot; title=&quot;宽度控制中卡尔曼滤波的应用&quot;&gt;&lt;/a&gt;宽度控制中卡尔曼滤波的应用&lt;/h4&gt;&lt;p&gt;将卡尔曼滤波器应用到连笔字书写的宽度控制函数中，这五个状态应该分别是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;状态预测&lt;/strong&gt; &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;W_ = W + µ*a    W_是预测宽度，W是上一个时刻的宽度，µ是系数，a是加速度。
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;噪声大小&lt;/strong&gt; &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;P_ = P + Q      P_是该值高斯噪声的偏差，P是上一时刻的最优偏差，Q是对自己预测的不确定度。
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;观测值&lt;/strong&gt; &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;W = W_ + K*(Z-W_)  W是宽度，Z是观测到的宽度。
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;卡尔曼系数&lt;/strong&gt; &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;K = P_/(P_+R)   R是观测值得偏差。
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;最优偏差更新&lt;/strong&gt; &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;P = (1-K)P_   P是此时刻的最优偏差，用到下一次的迭代中。
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;近期在写论文，学术论文。 度过一个特别痛苦的一个月，非常焦虑，很痛苦，却一无所成！最近这一周把心态慢下来，然后慢慢的做事情，反而每天都有一些收获，回头看，像是渡劫。&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Javascript Array分析</title>
     <link href="http://kunsun.me/2016/03/23/Javascript-Array/"/>
     <id>http://kunsun.me/2016/03/23/Javascript-Array/</id>
     <published>2016-03-23T02:57:26.000Z</published>
-    <updated>2016-03-23T11:58:58.000Z</updated>
+    <updated>2016-03-23T12:03:41.000Z</updated>
     
     <content type="html">&lt;p&gt;今天遇到一个问题，是JavaScript的数组操作，因为看不懂，所以研究了一下下，对于我这种立志于前端的，掌握Array操作还是很有必要的。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&quot;遇到的问题&quot;&gt;&lt;a href=&quot;#遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;遇到的问题&quot;&gt;&lt;/a&gt;遇到的问题&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;var data = Array.apply(0, Array(31)).map(function(item, i) {
