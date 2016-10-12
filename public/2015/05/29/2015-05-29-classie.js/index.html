@@ -1,0 +1,58 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Classie.js源码分析 · Kunsun</title><meta name="description" content="Classie.js源码分析 - yangkun"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"></head><body><header><a href="/" class="logo-link"><img src="/logo.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/resume/" target="_self" class="nav-list-link">RESUME</a></li><li class="nav-list-item"><a href="https://github.com/kunsun" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">Classie.js源码分析</h1><div class="post-time">May 29, 2015</div><div class="post-content"><h3 id="为什么要用classie-js"><a href="#为什么要用classie-js" class="headerlink" title="为什么要用classie.js"></a>为什么要用classie.js</h3><p>classie是一个 awesome,lightweight script。 用来添加，移除，toggleDom元素的类。那为什么不用jquery呢， 因为jquery相对于这几个简单的功能太冗余了(just too bloated for your needs)。 classie.js 只有简单的81行，去掉注释，仅有51行， 我们现在就来分析源码。<br><a id="more"></a></p>
+<blockquote>
+<p>这一篇blog也介绍了classie.js<a href="http://callmenick.com/post/add-remove-and-check-classes" target="_blank" rel="external">前往</a></p>
+</blockquote>
+<h3 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h3><p>classie只有4个方法，分别是：</p>
+<ul>
+<li>hasClass</li>
+<li>addClass</li>
+<li>removeClass</li>
+<li>toggleClass</li>
+</ul>
+<p>顾名思义。 使用classie只需要在js代码中，直接使用classie.hasClass等方法即可。方法中只需要传递两个参数，第一个是Element元素，第二个是需要操作的class名称。</p>
+<h3 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h3><p>首先介绍一下classList属性， classList是HTML5为javascipt的class操作新增的API。之前在操作类名时，需要通过className属性，className属性是一个字符串，使用className操作类名会涉及到很多字符串处理，很麻烦。新增的classList属性简化了这些操作。下面的代码就是使用classList属性进行了class的操作。</p>
+<pre><code>if ( &apos;classList&apos; in document.documentElement ) {
+      hasClass = function( elem, c ) {
+        return elem.classList.contains( c );
+      };
+      addClass = function( elem, c ) {
+        elem.classList.add( c );
+      };
+      removeClass = function( elem, c ) {
+        elem.classList.remove( c );
+      };
+}
+</code></pre><p>支持className属性的浏览器有Firefox3.6+和Chrome。所以在低版本中使用了另外一种写法。</p>
+<pre><code>else {
+      hasClass = function( elem, c ) {
+        return classReg( c ).test( elem.className );
+      };
+      addClass = function( elem, c ) {
+        if ( !hasClass( elem, c ) ) {
+              elem.className = elem.className + &apos; &apos; + c;
+        }
+      };
+      removeClass = function( elem, c ) {
+        elem.className = elem.className.replace( classReg( c ), &apos; &apos; );
+      };
+}
+</code></pre><p>其中classReg使用如下方法找到class ：</p>
+<pre><code>function classReg( className ) {
+      return new RegExp(&quot;(^|\\s+)&quot; + className + &quot;(\\s+|$)&quot;);
+}
+</code></pre><p>这里使用的是对className属性进行字符串处理。</p>
+<p>最后加上toggleClass。</p>
+<pre><code>function toggleClass( elem, c ) {
+      var fn = hasClass( elem, c ) ? removeClass : addClass;
+      fn( elem, c );
+}
+</code></pre><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>classie.js源码分析如上。 附classie.js的<a href="https://github.com/desandro/classie" target="_blank" rel="external">github地址</a>。</p>
+</div></article></div></section><footer><div class="paginator"><a href="/2015/05/30/2015-05-30-modernizr/" class="prev">PRVE</a><a href="/2015/05/11/2015-05-11-museum-data-format/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
+var disqus_identifier = '2015/05/29/2015-05-29-classie.js/';
+var disqus_title = 'Classie.js源码分析';
+var disqus_url = 'http://kunsun.me/2015/05/29/2015-05-29-classie.js/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//seansun.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2016 <a href="http://kunsun.me">yangkun</a>, powered by hexo theme apollo</p></div></footer><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "//hm.baidu.com/hm.js?a36e15d9e2adec9a21fcdd9f686b1ed2";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script><script src="https://cdn.bootcss.com/mathjax/2.5.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></body></html>
