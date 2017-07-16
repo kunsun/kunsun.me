@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kunsun.me/"/>
-  <updated>2016-10-12T08:40:05.000Z</updated>
+  <updated>2017-04-23T12:28:09.000Z</updated>
   <id>http://kunsun.me/</id>
   
   <author>
@@ -16,19 +16,23 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>test</title>
-    <link href="http://kunsun.me/2016/10/12/test/"/>
-    <id>http://kunsun.me/2016/10/12/test/</id>
-    <published>2016-10-12T05:21:21.000Z</published>
-    <updated>2016-10-12T08:40:05.000Z</updated>
+    <title>无兄弟，不游戏</title>
+    <link href="http://kunsun.me/2017/04/23/omg-lol/"/>
+    <id>http://kunsun.me/2017/04/23/omg-lol/</id>
+    <published>2017-04-23T11:45:15.000Z</published>
+    <updated>2017-04-23T12:28:09.000Z</updated>
     
-    <content type="html"><![CDATA[<p>哈哈</p>
+    <content type="html"><![CDATA[<p>过年之后，周五晚上第一次和康乐、强哥再聚到一块，大战了一场，应该是4胜2负，没坑队友。酣畅淋漓之后的快乐，比自己一个人偷偷的玩不知道爽到哪里去了。<br><img src="/images/ali.jpg" alt="阿狸"></p>
+<a id="more"></a>
+<p>从高中开始，就和亚乐、康乐、强哥、学儿、进伟聚到一块，各种玩耍。每周日早上6点半在体育场打球，冬天夏天都是如此。天气冷的时候，手都冻麻木了，但是一打就是三四个小时，回家有时候太晚会被母亲训话。</p>
+<p>过了篮球的狂热期，大家开始疯狂的热爱LOL了，强哥带我入的坑。50块买了一个薇恩封面的招行信用卡副卡，10块钱买了一个阿狸的高丽风情皮肤，15块钱买了个迅游加速器会员是我的游戏生涯的三笔大买卖，哈哈。那时，每周五晚上的游戏成了我们最期待的相聚，一般都玩到凌晨两三点才彼此睡去。</p>
+<p>有了女朋友，游戏就少了，确实如此，因为女朋友当然更好玩一点，哈哈。</p>
+<p>等毕业了一切安顿好了后，我立志要把蛐蛐带入坑，因为这样就不会出现5缺1的情况了，@进伟@强哥@康乐@亚乐，请点一波666。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;哈哈&lt;/p&gt;
-
+      &lt;p&gt;过年之后，周五晚上第一次和康乐、强哥再聚到一块，大战了一场，应该是4胜2负，没坑队友。酣畅淋漓之后的快乐，比自己一个人偷偷的玩不知道爽到哪里去了。&lt;br&gt;&lt;img src=&quot;/images/ali.jpg&quot; alt=&quot;阿狸&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -40,7 +44,7 @@
     <link href="http://kunsun.me/2015/11/04/2015-10-30-wringting-api/"/>
     <id>http://kunsun.me/2015/11/04/2015-10-30-wringting-api/</id>
     <published>2015-11-04T10:27:00.000Z</published>
-    <updated>2016-10-10T14:55:58.000Z</updated>
+    <updated>2017-03-14T03:02:10.000Z</updated>
     
     <content type="html"><![CDATA[<p>连笔字书写目前做的是汉字的展示和练习。 展示主要指标准字。练习指自己也可以在画布上练习写字。写好一个字之后，需要把多个字放入一个页面中。页面是多个字的组合，可以是对联，也可以是成语。<br><a id="more"></a></p>
 <h3 id="面向对象思路"><a href="#面向对象思路" class="headerlink" title="面向对象思路"></a>面向对象思路</h3><p>将字看做一个对象，命名为Character,单个字的操作都交给它处理。 例如，字的书写、字大小变化、字位置平移。 将页面看做一个对象，这里以成语为例（因为够简单），字与字之间的关系都交给它处理。例如，添加字、删除字、获取当前操作的是哪个字。 </p>
@@ -176,7 +180,7 @@ char.drawAllPoints(canvas, idiom.charArray[idiom01.charPointer-1].strokeArray);
     <link href="http://kunsun.me/2015/06/13/2015-06-13-HTMLCollection&amp;NodeList/"/>
     <id>http://kunsun.me/2015/06/13/2015-06-13-HTMLCollection&amp;NodeList/</id>
     <published>2015-06-12T16:00:00.000Z</published>
-    <updated>2016-10-10T14:53:59.000Z</updated>
+    <updated>2017-03-14T03:02:10.000Z</updated>
     
     <content type="html"><![CDATA[<p>NodeList和HTMLCollection是Dom中两个非常相似的概念，今天研究了一小会会，总结一下下。</p>
 <p>都是array-like object<br><a id="more"></a><br>getElementsByName(),Node.childNodes,document.querySelectorAll返回NodeList对象，而类似getElementsByTagName(),document.images() 和 document.forms() 的属性为HTMLCollection对象。</p>
@@ -206,7 +210,7 @@ char.drawAllPoints(canvas, idiom.charArray[idiom01.charPointer-1].strokeArray);
     <link href="http://kunsun.me/2015/06/09/2015-06-09-A-star/"/>
     <id>http://kunsun.me/2015/06/09/2015-06-09-A-star/</id>
     <published>2015-06-08T16:00:00.000Z</published>
-    <updated>2016-10-10T14:55:58.000Z</updated>
+    <updated>2017-03-14T03:02:10.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/images/A-star.jpg" alt="Kunsun" title="A star"></p>
 <p>因为算法设计课需要讲算法，阿飞推介的A*算法，正好也与游戏相关，所以就花了一整天时间研究了一下。顺利完成。附图一张。<br><a id="more"></a></p>
@@ -283,7 +287,7 @@ if we get to here, then there is No Solution
     <link href="http://kunsun.me/2015/06/09/2015-06-09-javascript-style-guide/"/>
     <id>http://kunsun.me/2015/06/09/2015-06-09-javascript-style-guide/</id>
     <published>2015-06-08T16:00:00.000Z</published>
-    <updated>2016-10-10T14:55:58.000Z</updated>
+    <updated>2017-03-14T03:02:10.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>参照github上的<a href="https://github.com/airbnb/javascript/tree/master/es5" target="_blank" rel="external">文章</a>。权当是学习笔记。<br><a id="more"></a></p>
@@ -355,7 +359,7 @@ if (collection.length) {
     <link href="http://kunsun.me/2015/06/02/2015-06-02-css-layout/"/>
     <id>http://kunsun.me/2015/06/02/2015-06-02-css-layout/</id>
     <published>2015-06-01T16:00:00.000Z</published>
-    <updated>2016-10-10T14:53:59.000Z</updated>
+    <updated>2017-03-14T03:02:10.000Z</updated>
     
     <content type="html"><![CDATA[<p>今天中午睡了一小会儿， 醒来到现在1个小时多点，读了这篇<a href="http://zh.learnlayout.com/" target="_blank" rel="external">CSS布局的文章</a>，感觉有所收获，顾文之。<br><a id="more"></a><br>每个元素都有一个默认的display类型， 不过你可以随时的重写它。</p>
 <p>设置块级元素左右边距为auto，可以使得水平居中。</p>
@@ -386,7 +390,7 @@ if (collection.length) {
     <link href="http://kunsun.me/2015/05/30/2015-05-30-modernizr/"/>
     <id>http://kunsun.me/2015/05/30/2015-05-30-modernizr/</id>
     <published>2015-05-29T16:00:00.000Z</published>
-    <updated>2016-10-10T14:53:59.000Z</updated>
+    <updated>2017-03-14T03:02:10.000Z</updated>
     
     <content type="html"><![CDATA[<p>一直认为学习一个工具或者一门语言做好的方法就是看原生文档， 这次<a href="http://modernizr.com/" target="_blank" rel="external">Modernizr</a>的学习再次确认了这个想法。 因为之前几天偷懒，三三两两的看关于Modernizr的中文文档，远没有今天专注花两个小时阅读<a href="http://modernizr.com/docs/" target="_blank" rel="external">官方文档</a>管用。<br><a id="more"></a><br>Modernizr会告诉你当前使用的浏览器是否原生支持了这些HTML5和CSS3特性。</p>
 <h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>Javascript客户端检测有三种方法：</p>
@@ -449,7 +453,7 @@ if (collection.length) {
     <link href="http://kunsun.me/2015/05/29/2015-05-29-classie.js/"/>
     <id>http://kunsun.me/2015/05/29/2015-05-29-classie.js/</id>
     <published>2015-05-28T16:00:00.000Z</published>
-    <updated>2016-10-10T14:53:59.000Z</updated>
+    <updated>2017-03-14T03:02:10.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="为什么要用classie-js"><a href="#为什么要用classie-js" class="headerlink" title="为什么要用classie.js"></a>为什么要用classie.js</h3><p>classie是一个 awesome,lightweight script。 用来添加，移除，toggleDom元素的类。那为什么不用jquery呢， 因为jquery相对于这几个简单的功能太冗余了(just too bloated for your needs)。 classie.js 只有简单的81行，去掉注释，仅有51行， 我们现在就来分析源码。<br><a id="more"></a></p>
 <blockquote>
@@ -516,41 +520,35 @@ if (collection.length) {
     <link href="http://kunsun.me/2015/05/11/2015-05-11-museum-data-format/"/>
     <id>http://kunsun.me/2015/05/11/2015-05-11-museum-data-format/</id>
     <published>2015-05-10T16:00:00.000Z</published>
-    <updated>2016-10-10T14:53:59.000Z</updated>
+    <updated>2017-04-23T11:36:09.000Z</updated>
     
     <content type="html"><![CDATA[<p>由于北京语言文化网上博物馆的数据分类特别多，所以文章对所有的数据条目进行了一个整理。<br><a id="more"></a></p>
-<p>###吟诵：</p>
-<ul>
+<h3 id="吟诵："><a href="#吟诵：" class="headerlink" title="吟诵："></a>吟诵：</h3><ul>
 <li>北京话吟诵：标题    标题图    吟诵者信息     视/音频    吟诵内容    说明    文件类型</li>
 <li>普通话吟诵：标题    标题图    吟诵者信息     视/音频    吟诵内容    说明（为空）    文件类型</li>
 <li>京外吟诵全景：标题    标题图    吟诵者信息     视/音频    吟诵内容    说明    文件类型</li>
 <li>吟诵录像教学： 标题    标题图    吟诵者信息     视/音频    吟诵内容    说明    文件类型<br>吟诵文献：两个docx文档<br>吟诵课件：10个ppt<br>吟诵论文： 数个docx文档<br>简介和什么是吟诵</li>
 </ul>
-<p>###地名</p>
-<ul>
+<h3 id="地名"><a href="#地名" class="headerlink" title="地名"></a>地名</h3><ul>
 <li>地名：地名  地理位置   管辖   普通话音    北京音    繁体   介绍    扩展说明</li>
 <li>少简介</li>
 </ul>
-<p>###方言土语</p>
-<ul>
+<h3 id="方言土语"><a href="#方言土语" class="headerlink" title="方言土语"></a>方言土语</h3><ul>
 <li>方言土语：编号  图通话词条  北京话词条   读音   释义    声音   图片   类别</li>
 </ul>
-<p>###北京话文献</p>
-<ul>
+<h3 id="北京话文献"><a href="#北京话文献" class="headerlink" title="北京话文献"></a>北京话文献</h3><ul>
 <li>北京话：类型，书名，作者，版本，出版社，年代，页数，简介，备注，封面。目录，pdf</li>
 <li>少pdf</li>
 <li>简介</li>
 </ul>
-<p>###清代御诗</p>
-<ul>
+<h3 id="清代御诗"><a href="#清代御诗" class="headerlink" title="清代御诗"></a>清代御诗</h3><ul>
 <li>御制诗初集：标题，诗作，注释，所写年代，作者，照片</li>
 <li>乐善堂集：标题，诗作，注释，所写年代，作者，照片</li>
 <li>御制诗二集：标题，诗作，注释，所写年代，作者，照片</li>
 <li>御制诗三集：标题，诗作，注释，所写年代，作者，照片</li>
 <li>简介</li>
 </ul>
-<p>###话说老北京</p>
-<ul>
+<h3 id="话说老北京"><a href="#话说老北京" class="headerlink" title="话说老北京"></a>话说老北京</h3><ul>
 <li>话说老北京：编号，普通话词条，北京话说法，读音，释义，声音，图片，类别</li>
 <li>简介</li>
 </ul>
@@ -561,8 +559,7 @@ if (collection.length) {
 <li>叫卖响器名物：道具名称，道具图片，道具说明 </li>
 <li>简介</li>
 </ul>
-<p>###外语</p>
-<ul>
+<h3 id="外语"><a href="#外语" class="headerlink" title="外语"></a>外语</h3><ul>
 <li>外语： 照片名，功能，类别1，类别2，拍摄日期，拍照人，评议人，地点，内容，评价。<br>简介</li>
 </ul>
 ]]></content>
@@ -581,14 +578,14 @@ if (collection.length) {
     <link href="http://kunsun.me/2015/05/11/2015-05-11-museum-framework-design/"/>
     <id>http://kunsun.me/2015/05/11/2015-05-11-museum-framework-design/</id>
     <published>2015-05-10T16:00:00.000Z</published>
-    <updated>2016-10-10T14:53:59.000Z</updated>
+    <updated>2017-04-23T11:36:12.000Z</updated>
     
-    <content type="html"><![CDATA[<p>###一、PHP框架<br>无论是从系统的稳定性，还是安全性来讲，将北京语言文化博物馆网站放到一个成熟框架中来开发是很切合实际的。</p>
+    <content type="html"><![CDATA[<h3 id="一、PHP框架"><a href="#一、PHP框架" class="headerlink" title="一、PHP框架"></a>一、PHP框架</h3><p>无论是从系统的稳定性，还是安全性来讲，将北京语言文化博物馆网站放到一个成熟框架中来开发是很切合实际的。</p>
 <p>北京语言文化网上博物馆使用的是Laravel框架，Laravel框架是目前最受欢迎的PHP框架。<br><a id="more"></a></p>
 <blockquote>
 <p>Laravel是2014与2015年美国<a href="http://www.sitepoint.com/best-php-frameworks-2014/" title="title" target="_blank" rel="external">最受欢迎的PHP框架</a>，根据最受欢迎的PHP框架调查显示。</p>
 </blockquote>
-<p>###二、 设计模式<br>MVC是一种组织结构设计模式，也是包括Laravel在内的所有主流框架使用的架构。要想先讲清网站的框架，需要先清楚MVC设计模式。</p>
+<h3 id="二、-设计模式"><a href="#二、-设计模式" class="headerlink" title="二、 设计模式"></a>二、 设计模式</h3><p>MVC是一种组织结构设计模式，也是包括Laravel在内的所有主流框架使用的架构。要想先讲清网站的框架，需要先清楚MVC设计模式。</p>
 <p>MVC的理念是将应用开发依据逻辑分隔为几个部分，然后各司其职，互有联系。它把应用分为了业务逻辑（即数据部分），用户界面（即视图部分），以及用于管理逻辑，用户输出，并在模型和视图中间起协调作用的控制部分（即控制器）。</p>
 <blockquote>
 <p>这个模式最初由Trygve Reenskaug在使用Smalltalk-80语言时设计出，一开始它的名字叫做”模型-视图-控制器-编辑器”模式。《设计模式：可重用的面向对象软件元素》一书对MVC设计模式有详细的描述。</p>
@@ -708,7 +705,7 @@ if (collection.length) {
     
     <summary type="html">
     
-      &lt;p&gt;###一、PHP框架&lt;br&gt;无论是从系统的稳定性，还是安全性来讲，将北京语言文化博物馆网站放到一个成熟框架中来开发是很切合实际的。&lt;/p&gt;
+      &lt;h3 id=&quot;一、PHP框架&quot;&gt;&lt;a href=&quot;#一、PHP框架&quot; class=&quot;headerlink&quot; title=&quot;一、PHP框架&quot;&gt;&lt;/a&gt;一、PHP框架&lt;/h3&gt;&lt;p&gt;无论是从系统的稳定性，还是安全性来讲，将北京语言文化博物馆网站放到一个成熟框架中来开发是很切合实际的。&lt;/p&gt;
 &lt;p&gt;北京语言文化网上博物馆使用的是Laravel框架，Laravel框架是目前最受欢迎的PHP框架。&lt;br&gt;
     
     </summary>
